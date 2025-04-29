@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Connect with MetaMask</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; margin-top: 50px; }
+    #connectButton { padding: 10px 20px; font-size: 16px; }
+    #walletAddress { margin-top: 20px; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+  <h1>Connect with MetaMask</h1>
+  <button id="connectButton">Connect Wallet</button>
+  <div id="walletAddress"></div>
+
+  <script>
+    const connectButton = document.getElementById('connectButton');
+    const walletAddressDiv = document.getElementById('walletAddress');
+
+    connectButton.addEventListener('click', async () => {
+      if (typeof window.ethereum !== 'undefined') {
+        try {
+          // Solicitar conexión a MetaMask
+          const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+
+          // Mostrar dirección conectada
+          const walletAddress = accounts[0];
+          walletAddressDiv.textContent = `Wallet connected: ${walletAddress}`;
+        } catch (err) {
+          walletAddressDiv.textContent = `Error: ${err.message}`;
+        }
+      } else {
+        walletAddressDiv.textContent = 'MetaMask is not installed';
+      }
+    });
+  </script>
+
+</body>
+</html>

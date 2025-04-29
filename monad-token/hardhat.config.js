@@ -1,4 +1,5 @@
 require("@nomicfoundation/hardhat-toolbox");
+require('dotenv').config();
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -6,7 +7,7 @@ module.exports = {
   networks: {
     monad: {
       url: "https://testnet-rpc.monad.xyz",
-      accounts: [""], // ⚠️ wallet de prueba
+      accounts: [process.env.PRIVATE_KEY], // ⚠️ wallet de prueba
       chainId: 10143,
     }
   }
