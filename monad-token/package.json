@@ -1,10 +1,16 @@
 {
+  "type": "commonjs",
   "name": "monad-token",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "test": "hardhat test",
-    "deploy": "hardhat run scripts/deploy.js --network monad"
+    "deploy:dev": "NODE_ENV=development npx hardhat run scripts/deploy.js --network localhost",
+    "deploy:testnet": "NODE_ENV=testnet npx hardhat run scripts/deploy.js --network monad",
+    "deploy:prod": "NODE_ENV=production npx hardhat run scripts/deploy.js --network mainnet",
+    "checkBalance:dev": "NODE_ENV=development npx hardhat run scripts/checkBalance.js --network localhost",
+    "checkBalance:testnet": "NODE_ENV=testnet npx hardhat run scripts/checkBalance.js --network monad",
+    "checkBalance:prod": "NODE_ENV=production npx hardhat run scripts/checkBalance.js --network mainnet"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +18,7 @@
   "description": "",
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@nomiclabs/hardhat-etherscan": "^3.1.8",
     "hardhat": "^2.23.0"
   },
   "dependencies": {
