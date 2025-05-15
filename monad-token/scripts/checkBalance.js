@@ -1,4 +1,4 @@
-require("dotenv").config({ path: `.env.${process.env.NODE_ENV || "development"}` });
+require("dotenv").config({ path: `.env.${process.env.NODE_ENV || "testnet"}` });
 const { ethers } = require("hardhat");
 console.log("✅ Entorno configurado:", process.env);
 

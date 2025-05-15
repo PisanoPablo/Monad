@@ -4,7 +4,7 @@ require('dotenv').config();
 const dotenv = require("dotenv");
 
 // Detectamos el entorno actual (development, production, testnet)
-const ENV = process.env.NODE_ENV || "development";
+const ENV = process.env.NODE_ENV || "testnet";
 
 // Cargamos el archivo .env correspondiente según el entorno
 dotenv.config({ path: `.env.${ENV}` });
@@ -33,4 +33,3 @@ module.exports = {
       apiKey: process.env.ETHERSCAN_API_KEY, // Asegúrate de tener tu clave API de Etherscan
     },
   }
-};

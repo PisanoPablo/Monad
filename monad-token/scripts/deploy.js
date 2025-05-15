@@ -1,7 +1,7 @@
 const hre = require("hardhat");
 const { ethers } = require("hardhat");
 
-require("dotenv").config({ path: `.env.${process.env.NODE_ENV || "development"}` });
+require("dotenv").config({ path: `.env.${process.env.NODE_ENV || "testnet"}` });
 
 async function main() {
   try {
